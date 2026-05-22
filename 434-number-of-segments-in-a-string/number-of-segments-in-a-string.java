@@ -1,7 +1,8 @@
 class Solution {
     public int countSegments(String s) {
+        //HIGH SPACE COMPLEXITY
 
-        String str = s.trim();
+        /*String str = s.trim();
 
         if (str.length() == 0) {
             return 0;
@@ -17,6 +18,16 @@ class Solution {
                 }
             }
         }
-        return segments;
+        return segments;*/
+
+        //ANOTHER MATHOD
+
+        s = s.trim();
+        if(s.length()==0){
+            return 0;
+        }
+
+        String arr[] = s.split(" +");
+        return arr.length;
     }
 }
