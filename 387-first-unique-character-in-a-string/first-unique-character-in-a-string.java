@@ -3,15 +3,11 @@ class Solution {
         int freq[] = new int [26];
 
         for(int i=0 ; i<s.length() ; i++){
-            char ch = s.charAt(i);
-
-            freq[ch-97]++;
+            freq[s.charAt(i)-97]++;
         }
 
          for(int i=0 ; i<s.length() ; i++){
-            char ch = s.charAt(i);
-
-            if(freq[ch-97] == 1){
+            if(freq[s.charAt(i)-97] == 1){
                 return i;
             }
         }
