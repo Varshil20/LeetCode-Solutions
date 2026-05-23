@@ -26,9 +26,11 @@ class Solution {
 
         return sb.toString();*/
 
-        //ANOTHER SOLUTION
+        //ANOTHER SOLUTION  
 
-        String arr[] = s.split(" ");
+        //It also has high time complexity
+
+        /*String arr[] = s.split(" ");
 
         StringBuilder sb = new StringBuilder();
 
@@ -44,6 +46,19 @@ class Solution {
             }
         }
 
-        return sb.toString();
+        return sb.toString();*/
+
+        String arr[] = s.split(" ");
+        StringBuilder reversed = new StringBuilder();
+
+        for(int i=0 ; i<arr.length ; i++){
+            StringBuilder word = new StringBuilder(arr[i]);
+            word.reverse();
+
+            reversed.append(word + " ");
+
+        }
+
+        return reversed.toString().trim();
     }
 }
