@@ -48,7 +48,7 @@ class Solution {
 
         return sb.toString();*/
 
-        String arr[] = s.split(" ");
+        /*String arr[] = s.split(" ");
         StringBuilder reversed = new StringBuilder();
 
         for(int i=0 ; i<arr.length ; i++){
@@ -59,6 +59,40 @@ class Solution {
 
         }
 
-        return reversed.toString().trim();
+        return reversed.toString().trim();*/
+
+        char[] chars = s.toCharArray();
+        int n = chars.length;
+
+        int i = 0;
+        // finding starting word
+        while ( i < n ) {
+            while ( i < n && chars[i] == ' ') {
+                i++;
+            }
+            // finding end of word
+            int j = i;
+            while ( j < n && chars[j] != ' '){
+                j++;
+            }
+            reverse (chars , i, j - 1);
+
+        
+        i = j + 1;
     }
+    return new String(chars);
+
+   }
+        // helper to reverse the part of array
+
+    private void reverse (char  [] chars, int left , int right ) {
+        while (left <  right) {
+            char temp = chars [left];
+            chars[left] = chars[right];
+            chars[right] = temp;
+            left ++;
+            right --;
+        }
+}
+
 }
