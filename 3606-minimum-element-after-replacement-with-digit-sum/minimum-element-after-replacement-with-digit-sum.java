@@ -10,7 +10,7 @@ class Solution {
                 sum = sum + temp%10;
                 temp /= 10;
             }
-            nums[i] = sum;
+            //nums[i] = sum;
             minsum = Math.min(sum,minsum);
         }
 
