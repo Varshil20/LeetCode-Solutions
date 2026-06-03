@@ -32,10 +32,8 @@ class Solution {
                 ans = ans * x;
                 nn = nn-1;
             }
-            else{
             x = x*x;
-            nn = nn/2;
-            }
+            nn = nn/2;   
         }
 
         return (n < 0) ? 1/ans : ans;
