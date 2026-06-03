@@ -11,7 +11,7 @@ class Solution {
         }
 
         if (idx == -1) {
-            swap(nums, 0, n - 1);
+            reverse(nums, 0, n - 1);
         } else {
 
             for (int i = n - 1; i > idx; i--) {
@@ -23,11 +23,11 @@ class Solution {
                 }
             }
 
-            swap(nums, idx + 1, n - 1);
+            reverse(nums, idx + 1, n - 1);
         }
     }
 
-    private void swap(int arr[], int s, int e) {
+    private void reverse(int arr[], int s, int e) {
         while (s < e) {
             int temp = arr[s];
             arr[s] = arr[e];
