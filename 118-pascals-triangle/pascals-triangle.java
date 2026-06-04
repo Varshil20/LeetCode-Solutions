@@ -1,5 +1,12 @@
 class Solution {
     public List<List<Integer>> generate(int numRows) {
+
+        //reffered the strivers video
+        //Done the optimal solution using previously calculaed ans
+        //You can find the perticular element by using the formula of nCr where n = row -1 ans r = col - 1;
+        //Anthe the formula of nCr is n!/(r! * (n-r)!);
+
+        
         List<List<Integer>> ans = new ArrayList<>();
 
         for(int row = 1 ; row <=numRows ; row++){
