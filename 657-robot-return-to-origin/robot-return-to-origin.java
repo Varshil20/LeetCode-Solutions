@@ -1,5 +1,10 @@
 class Solution {
     public boolean judgeCircle(String moves) {
+
+        if(moves.length() % 2 != 0){
+            return false;
+        }
+
         int up = 0;
         int right = 0;
 
@@ -23,5 +28,8 @@ class Solution {
         }
 
         return (up == 0 && right == 0);
+
+        //OR YOU CAN DO IT WITH FREQUENCY 
+
     }
 }
