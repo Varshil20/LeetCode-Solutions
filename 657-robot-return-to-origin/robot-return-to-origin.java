@@ -1,9 +1,7 @@
 class Solution {
     public boolean judgeCircle(String moves) {
 
-        if(moves.length() % 2 != 0){
-            return false;
-        }
+       
 
         int up = 0;
         int right = 0;
