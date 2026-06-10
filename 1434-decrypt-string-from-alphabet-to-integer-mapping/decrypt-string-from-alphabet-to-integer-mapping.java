@@ -13,10 +13,11 @@ class Solution {
                 number = s.charAt(i) - '0';
             }
             // Convert the numeric value to its alphabetic representation
-            sb.append((char) (number + 96));
+            sb.insert
+            (0,(char) (number + 96));
         }
 
-        return sb.reverse().toString();  
+        return sb.toString();  
         
     }
 }
