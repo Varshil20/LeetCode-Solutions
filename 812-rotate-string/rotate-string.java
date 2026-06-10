@@ -16,6 +16,7 @@ class Solution {
             if (j == goal.length()) {
                 return true;
             }
+
         }
 
         return false;
