@@ -1,6 +1,9 @@
 class Solution {
     public boolean detectCapitalUse(String word) {
-        char arr[] = word.toCharArray();
+
+        //DIFICULT METHOD
+
+        /*char arr[] = word.toCharArray();
         if(arr.length == 0 || arr.length == 1){
             return true;
         }
@@ -28,6 +31,24 @@ class Solution {
 
     private boolean isUpper(char ch){
         if(ch >= 'A' && ch <= 'Z'){
+            return true;
+        }
+
+        return false;*/
+
+        //ANOTHER EASY METHOD by countting capital words
+
+        int c = 0;
+
+        for(int i = 0 ; i < word.length() ; i++){
+            char ch = word.charAt(i);
+
+            if(ch >= 'A' && ch <= 'Z'){
+                c++;
+            }
+        }
+
+        if(c == 0 || c == word.length() || (c == 1 && word.charAt(0) >= 'A' && word.charAt(0)<= 'Z')){
             return true;
         }
 
