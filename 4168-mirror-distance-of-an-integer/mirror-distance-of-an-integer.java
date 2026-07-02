@@ -8,6 +8,6 @@ class Solution {
             temp /= 10;
         }
 
-        return (int)(Math.abs(n - rev));
+        return Math.abs(n - rev);
     }
 }
