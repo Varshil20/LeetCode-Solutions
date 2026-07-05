@@ -6,8 +6,8 @@ class Solution {
             char ch = s.charAt(i);
 
             if(i < s.length() - 1 && value(ch) < value(s.charAt(i+1))){
-                total = total + value(s.charAt(i+1)) - value(ch);
-                i++;
+                total = total - value(ch);
+                //i++;
             }
             else{
                 total += value(ch);
