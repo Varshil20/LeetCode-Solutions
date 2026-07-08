@@ -1,69 +1,44 @@
 class Solution {
     public int[] sumAndMultiply(String s, int[][] queries) {
-        final long MOD = 1_000_000_007L;
-        int n = s.length();
+        long MOD = 1_000_000_007;
+        int len = s.length();
 
-        int[] nonZeroCount = new int[n + 1];
+        long[] preSum = new long[len + 1];
+        long[] preProduct = new long[len + 1];
+        int[] nonZeroCnt = new int[len + 1];
+        long[] p10 = new long[len + 1];
 
-        for (int i = 0; i < n; i++) {
-            nonZeroCount[i + 1] =
-                nonZeroCount[i] + (s.charAt(i) != '0' ? 1 : 0);
-        }
+        p10[0] = 1;
+        for (int i = 0; i < len; i++) {
+            p10[i + 1] = (p10[i] * 10) % MOD;
 
-        int k = nonZeroCount[n];
+            int digit = s.charAt(i) - '0';
+            preSum[i + 1] = preSum[i] + digit;
 
-        int[] digits = new int[k];
-        int index = 0;
-
-        for (int i = 0; i < n; i++) {
-            if (s.charAt(i) != '0') {
-                digits[index++] = s.charAt(i) - '0';
+            if (digit == 0) {
+                preProduct[i + 1] = preProduct[i];
+                nonZeroCnt[i + 1] = nonZeroCnt[i];
+            } else {
+                preProduct[i + 1] = (preProduct[i] * 10 + digit) % MOD;
+                nonZeroCnt[i + 1] = nonZeroCnt[i] + 1;
             }
         }
 
-        long[] prefixValue = new long[k + 1];
-
-        long[] prefixSum = new long[k + 1];
-
-        long[] power10 = new long[k + 1];
-        power10[0] = 1;
-
-        for (int i = 0; i < k; i++) {
-            prefixValue[i + 1] =
-                (prefixValue[i] * 10 + digits[i]) % MOD;
-
-            prefixSum[i + 1] =
-                prefixSum[i] + digits[i];
-
-            power10[i + 1] =
-                (power10[i] * 10) % MOD;
-        }
-
-        int[] answer = new int[queries.length];
-
+        int[] res = new int[queries.length];
         for (int i = 0; i < queries.length; i++) {
-            int l = queries[i][0];
-            int r = queries[i][1];
+            int start = queries[i][0];
+            int end = queries[i][1];
 
-            int left = nonZeroCount[l];
+            long sum = preSum[end + 1] - preSum[start];
 
-            int right = nonZeroCount[r + 1];
+            int cnt = nonZeroCnt[end + 1] - nonZeroCnt[start];
 
-            int len = right - left;
+            long subtract = (preProduct[start] * p10[cnt]) % MOD;
+            long x = (preProduct[end + 1] - subtract + MOD) % MOD;
 
-            long x = (
-                prefixValue[right]
-                - (prefixValue[left] * power10[len]) % MOD
-                + MOD
-            ) % MOD;
-
-            long sum =
-                prefixSum[right] - prefixSum[left];
-
-            answer[i] = (int)((x * sum) % MOD);
+            res[i] = (int) ((x * sum) % MOD);
         }
 
-        return answer;
-      
+        return res;
     }
 }
