@@ -6,13 +6,13 @@ class Solution {
         for(int i = 1 ; i < s.length() ; i++){
             if(s.charAt(i) == s.charAt(i-1)){
                 crnt++;
+                max = Math.max(crnt , max);
             }
             else{
-                max = Math.max(crnt , max);
                 crnt = 1;
             }
         }
 
-        return Math.max(max , crnt);
+        return max;
     }
 }
