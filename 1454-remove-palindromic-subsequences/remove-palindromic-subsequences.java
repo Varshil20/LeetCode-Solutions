@@ -2,27 +2,26 @@ class Solution {
     public int removePalindromeSub(String s) {
         int n = s.length();
 
-        if(n == 0){
-            return 0;
+        if(isPalin(s)){
+            return 1;
         }
 
-        boolean isPalin = true;
+        return 2;
+    }
 
+    private boolean isPalin(String s){
+       
         int i = 0;
-        int j = n-1;
+        int j = s.length()-1;
 
         while(i < j){
             if(s.charAt(i) != s.charAt(j)){
-                isPalin = false;
+                return false;
             }
             i++;
             j--;
         }
 
-        if(isPalin){
-            return 1;
-        }
-
-        return 2;
+        return true;
     }
 }
